@@ -13,8 +13,7 @@ public class Product : AggregateRoot
         Description = description;
         Price = price;
         Quantity = quantity;
-        CategoryValueObject = categoryValueObject;
-
+        Category = categoryValueObject;
         CreatedAt = DateTime.Now;
     }
 
@@ -23,11 +22,11 @@ public class Product : AggregateRoot
     public decimal Price { get; private set; }
     public DateTime CreatedAt { get; private set; }
     public int Quantity { get; private set; }
-    public CategoryValueObject CategoryValueObject { get; private set; }
+    public CategoryValueObject Category { get; private set; }
 
     public void Update(string description, decimal price, CategoryValueObject categoryValueObject)
     {
-        if (categoryValueObject != null) CategoryValueObject = categoryValueObject;
+        if (categoryValueObject != null) Category = categoryValueObject;
 
         Description = description;
         Price = price;
