@@ -19,9 +19,11 @@ public class
         var product = await _productRepository.GetByIdAsync(request.Id);
 
         product.Update(request.Description, request.Price, request.Category.ToValueObject());
-
+        
         await _productRepository.UpdateAsync(product);
 
-        return new UpdateProductCommandViewModel();
+        var productDetails = UpdateProductCommandViewModel.FromEntity(product);
+
+        return productDetails;
     }
 }

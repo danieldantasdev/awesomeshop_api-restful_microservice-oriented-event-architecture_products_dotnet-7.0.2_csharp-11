@@ -1,5 +1,4 @@
 using AwesomeShop.Services.Products.Core.Events;
-using AwesomeShop.Services.Products.Core.ValueObjects;
 using AwesomeShop.Services.Products.Core.ValueObjects.Categories;
 
 namespace AwesomeShop.Services.Products.Core.Entities;
@@ -26,8 +25,7 @@ public class Product : AggregateRoot
 
     public void Update(string description, decimal price, CategoryValueObject categoryValueObject)
     {
-        if (categoryValueObject != null) Category = categoryValueObject;
-
+        Category = categoryValueObject;
         Description = description;
         Price = price;
 
